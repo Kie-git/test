@@ -1,0 +1,768 @@
+/*==============================================================================================================================================================================================
+*
+*
+*レスポンシブ
+*
+*
+==============================================================================================================================================================================================*/
+
+// インライン要素用
+
+// .pc {
+// 	display: inline;
+
+// 	@include sp {
+// 		display: none;
+// 	}
+// }
+
+// .sp {
+// 	display: none;
+
+// 	@include sp {
+// 		display: inline;
+// 	}
+// }
+
+
+// ブロックレベル要素用
+
+// .pci {
+// 	display: block;
+
+// 	@include sp {
+// 		display: none !important;
+// 	}
+// }
+
+// .spi {
+// 	display: none;
+
+// 	@include sp {
+// 		display: block;
+// 	}
+// }
+
+// ブロックレベル要素用
+
+.pci {
+	display: inline;
+
+	@include res768 {
+		display: none !important;
+	}
+}
+
+.spi {
+	display: none;
+
+	@include res768 {
+		display: inline;
+	}
+}
+
+
+
+/*==============================================================================================================================================================================================
+*
+*
+* 全体共通
+*
+*
+==============================================================================================================================================================================================*/
+
+
+.wrapper {
+	max-width: 1080px;
+	margin: 0 auto;
+	margin-bottom: 160px;
+	padding: 0 5%;
+
+	@include sp {
+		max-width: 100%;
+		margin-bottom: 96px;
+	}
+}
+
+.inner {
+	max-width: 920px;
+	margin: 0 auto;
+	margin-bottom: 160px;
+	padding: 0 5%;
+
+	@include sp {
+		max-width: 100%;
+		margin-bottom: 96px;
+	}
+}
+
+main {
+	padding-top: 80px;
+
+	@include res768 {
+		padding-top: 60px;
+	}
+}
+
+/*===========================================
+* body
+===========================================*/
+
+body {
+	position: relative;
+	min-height: 100vh;
+}
+
+.title {
+	margin-bottom: 80px;
+	text-align: center;
+
+	@include res768 {
+		margin-bottom: 48px;
+	}
+
+	h2 {
+		font-size: 3.2rem;
+		font-weight: 700;
+
+		@include res768 {
+			font-size: 2rem;
+		}
+	}
+
+	p {
+		margin-top: 16px;
+		font-size: 1.8rem;
+
+		@include res768 {
+			margin-top: 14px;
+			font-size: 1.4rem;
+		}
+	}
+}
+
+/*===========================================
+* header
+===========================================*/
+
+.header {
+	position: fixed;
+	z-index: 10;
+	right: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 32px;
+
+	@include res768 {
+		height: 60px;
+		padding: 0 5%;
+	}
+
+	.logo {
+		width: 85px;
+
+		@include res768 {
+			width: 70px;
+		}
+	}
+
+	.nav {
+		width: 24px;
+	}
+}
+
+// index
+
+/*===========================================
+* FV
+===========================================*/
+
+.fv {
+	margin-bottom: 160px;
+
+	@include res768 {
+		margin-bottom: 175px;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+
+		@include res768 {
+			align-items: flex-start;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		&__img {
+			width: calc(100% - 320px - 10%);
+
+			@include res768 {
+				width: 100%;
+			}
+
+
+
+			img {
+				width: 100%;
+				height: 688px;
+
+				@include res768 {
+					height: auto;
+
+					object-fit: contain;
+				}
+
+				object-fit: cover;
+			}
+		}
+
+
+		&__catch {
+			width: 320px;
+
+			@include res768 {
+				padding-left: 5%;
+			}
+
+
+
+			&__text h2 {
+				width: 278px;
+				margin-bottom: 96px;
+				letter-spacing: 0.08em;
+				font-size: 4rem;
+				font-weight: 500;
+				line-height: 2.4;
+
+				@include res768 {
+					margin-bottom: 24px;
+					padding-top: 24px;
+					letter-spacing: 0.48em;
+					font-size: 2.4rem;
+					font-weight: 500;
+					line-height: 2.2;
+				}
+			}
+
+			&__btn {
+				position: absolute;
+				width: 360px;
+				height: 55px;
+				text-align: center;
+				color: $c-white;
+				background-color: $c-theme;
+				font-size: 1.8rem;
+				line-height: 55px;
+
+				@include res768 {
+					width: 260px;
+					font-size: 1.6rem;
+				}
+			}
+		}
+	}
+}
+
+
+/*===========================================
+* FEATURE
+===========================================*/
+
+.feature {
+	display: flex;
+	flex-direction: column;
+
+	p:first-child {
+		margin-top: 0;
+
+		@include res768 {
+			margin-top: 16px;
+		}
+	}
+
+	.feature-title-sup {
+		margin-top: 16px;
+		margin-bottom: 8px;
+		color: $c-theme;
+
+		@include res768 {
+			font-size: 1.4rem;
+		}
+	}
+
+	.feature-title {
+		margin-bottom: 16px;
+		font-size: 2rem;
+		font-weight: 500;
+
+		@include res768 {
+			font-size: 1.8rem;
+		}
+	}
+
+	.feature-text {
+		letter-spacing: 1.28px;
+		color: $c-base;
+
+		@include res768 {
+			font-size: 1.4rem;
+		}
+	}
+
+	&__list01 {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		margin-bottom: 80px;
+
+		@include res768 {
+			flex-direction: column;
+			margin-bottom: 48px;
+		}
+
+		&__img {
+			width: 50%;
+
+			@include res768 {
+				width: 100%;
+			}
+		}
+
+		&__text {
+			width: 50%;
+			padding-left: 80px;
+
+			@include res768 {
+				width: 100%;
+				padding-left: 0;
+			}
+		}
+	}
+
+	&__list02 {
+		ul {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			@include res768 {
+				flex-direction: column;
+			}
+
+			li {
+				width: 30%;
+
+				@include res768 {
+					width: 100%;
+					margin-bottom: 48px;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				img {
+					@include res768 {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*===========================================
+* IMG
+===========================================*/
+
+.img img {
+	margin-bottom: 160px;
+
+	@include res768 {
+		margin-bottom: 96px;
+	}
+}
+
+/*===========================================
+* LINE UP
+===========================================*/
+
+.line-up {
+	margin-bottom: 80px;
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		text-align: center;
+
+		@include res768 {
+			flex-direction: column;
+		}
+
+		li {
+			width: 46%;
+			margin-bottom: 80px;
+
+			@include res768 {
+				width: 100%;
+				margin-bottom: 48px;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		margin: 16px 0;
+		font-size: 2rem;
+		font-weight: 500;
+
+		@include res768 {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__text {
+		height: 50px;
+		margin-bottom: 16px;
+		color: $c-base;
+
+		@include res768 {
+			height: 45px;
+		}
+	}
+
+	&__btn {
+		width: 70%;
+		height: 55px;
+		margin: 0 auto;
+		color: $c-white;
+		background: $c-theme;
+		line-height: 55px;
+
+		@include res768 {
+			line-height: 55px;
+		}
+	}
+}
+
+/*===========================================
+* INSTAGRAM
+===========================================*/
+
+.instagram {
+	ul {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 80px;
+
+		@include res768 {
+			margin-bottom: 48px;
+		}
+
+		li {
+			width: 32%;
+		}
+	}
+
+	&__btn {
+		width: 324px;
+		height: 55px;
+		margin: 0 auto;
+		text-align: center;
+		color: $c-white;
+		background: $c-theme;
+		font-size: 1.8rem;
+		line-height: 55px;
+
+		@include res768 {
+			width: 260px;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+
+/*===========================================
+* footer
+===========================================*/
+
+.footer {
+	padding-top: 56px;
+	padding-bottom: 24px;
+	color: $c-white;
+	background: $c-theme;
+
+	@include res768 {
+		padding-top: 40px;
+		padding-bottom: 16px;
+	}
+
+
+	.logo-white img {
+		width: 84px;
+		height: 20px;
+
+		@include res768 {
+			margin: 0 auto;
+		}
+	}
+
+	.nav {
+		margin-top: 24px;
+		padding-bottom: 40px;
+		border-bottom: 1px solid $c-border ;
+
+		@include res768 {
+			padding-bottom: 16px;
+		}
+
+		ul {
+			display: flex;
+			justify-content: flex-start;
+
+			@include res768 {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			li {
+				padding-right: 24px;
+				font-size: 1.4rem;
+
+				@include res768 {
+					padding-right: 16px;
+					font-size: 1.2rem;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	.copyright p {
+		margin-top: 24px;
+		text-align: center;
+		font-size: 1.2rem;
+
+		@include res768 {
+			margin-top: 16px;
+		}
+	}
+
+	.wrapper {
+		margin-bottom: 0;
+	}
+}
+
+// product
+/*===========================================
+* mainvisual
+===========================================*/
+
+.mainvisual img {
+	height: calc(100vh - 80px);
+
+	object-fit: cover;
+}
+
+.content {
+	display: flex;
+	align-items: start;
+	margin-top: 160px;
+
+	@include res768 {
+		flex-direction: column;
+		margin-top: 96px;
+	}
+
+	&__img {
+		width: 45%;
+
+		@include res768 {
+			width: 100%;
+		}
+	}
+
+	&__text {
+		width: 55%;
+		padding-left: 8%;
+
+		@include res768 {
+			width: 100%;
+			margin-top: 16px;
+			padding-left: 0;
+		}
+
+		h2 {
+			margin-bottom: 24px;
+			font-size: 2.6rem;
+			font-weight: 500;
+
+			@include res768 {
+				margin-bottom: 16px;
+				font-size: 2.2rem;
+			}
+		}
+
+		p {
+			margin-bottom: 24px;
+			color: $c-base;
+
+			@include res768 {
+				margin-bottom: 16px;
+				font-size: 1.4rem;
+			}
+		}
+
+		&__btn {
+			width: 324px;
+			height: 55px;
+			text-align: center;
+			color: $c-white;
+			background: $c-theme;
+			font-weight: 500;
+			line-height: 55px;
+
+			@include res768 {
+				width: 260px;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+
+#related {
+	padding: 160px 0;
+	background-color: rgba(186, 168, 162, 0.15);
+
+	@include res768 {
+		padding: 96px 0;
+	}
+
+	.wrapper {
+		margin-bottom: 0;
+	}
+}
+
+
+
+.related {
+	ul {
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+
+		@include res768 {
+			flex-direction: column;
+		}
+	}
+
+	li {
+		width: 30%;
+
+		@include res768 {
+			width: 100%;
+			margin-bottom: 48px;
+		}
+
+		&:last-child {
+			@include res768 {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+	&__title {
+		margin: 16px 0;
+		font-size: 2rem;
+		font-weight: 500;
+
+		@include res768 {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__text {
+		height: 50px;
+		margin-bottom: 40px;
+
+		@include res768 {
+			font-size: 1.4rem;
+		}
+	}
+
+	&__btn {
+		width: 90%;
+		height: 55px;
+		color: $c-white;
+		background: $c-theme;
+		font-size: 1.8rem;
+		font-weight: 500;
+		line-height: 55px;
+
+		@include res768 {
+			margin: 0 auto;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+// ERROR
+/*===========================================
+* ERROR
+===========================================*/
+
+#error {
+	text-align: center;
+
+	h2 {
+		margin-top: 160px;
+		margin-bottom: 16px;
+		font-size: 3.6rem;
+		font-weight: 700;
+
+		@include res768 {
+			margin-top: 96px;
+		}
+	}
+
+	h3 {
+		margin-bottom: 40px;
+		font-size: 1.8rem;
+	}
+
+	p {
+		margin-bottom: 40px;
+		color: $c-base;
+	}
+
+	.top-btn {
+		width: 324px;
+		height: 55px;
+		margin: 0 auto;
+		margin-bottom: 160px;
+		color: $c-white;
+		background: $c-theme;
+		font-size: 1.8rem;
+		line-height: 55px;
+
+		@include res768 {
+			width: 260px;
+			margin-bottom: 96px;
+			font-size: 1.6rem;
+		}
+	}
+}
