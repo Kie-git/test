@@ -1,0 +1,296 @@
+@charset "utf-8";
+
+/*==============================================================
+*
+*カラー管理
+*
+================================================================*/
+
+:root {
+    --c-theme: #DDF4EC;
+    --c-text: #3A3A3A;
+    --c-white: #fff;
+}
+
+/*==============================================================
+*
+*基本設定
+*
+================================================================*/
+
+html {
+    font-size: 100%;
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+    font-weight: 400;
+    font-size: 62.5%;
+    line-height: 1.6;
+}
+
+.inter {
+    font-family: "inter", "sans-serif";
+}
+
+body {
+    color: var(--c-text);
+    overflow-x: hidden;
+}
+
+/*
+横幅を設定するための共通クラス
+*/
+
+.inner {
+    max-width: calc(1080px + 40px);
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+@media (max-width: 768px) {
+    .inner {
+        max-width: 100%;
+        padding: 0 5%;
+    }
+}
+
+.inner--small {
+    max-width: calc(920px + 40px);
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+@media (max-width: 768px) {
+    .inner-small {
+        max-width: 100%;
+        padding: 0 5%;
+    }
+}
+
+* {
+    outline: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a,
+a:link {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*==============================================================
+*
+*FONTS
+*
+================================================================*/
+
+.bold {
+    font-weight: 600;
+}
+
+/*==============================================================
+*
+*セクションタイトル
+*
+================================================================*/
+
+.section-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    img {
+        margin-inline: auto;
+        width: 16px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 500px) {
+    .section-title {
+        img {
+            width: 12px;
+            height: 28px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+}
+
+/*==============================================================
+*
+*ボタン
+*
+================================================================*/
+
+.btn-more {
+    display: block;
+    position: relative;
+    width: 265px;
+    height: 55px;
+    border: 1px solid var(--c-text);
+    padding: 15px 113px;
+    margin-inline: auto;
+    text-align: center;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        width: 75px;
+        height: 1px;
+        background-color: var(--c-text);
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+        transform: translate(10px, -50%);
+    }
+}
+
+
+
+.btn-here {
+    display: block;
+    position: relative;
+    width: 70%;
+    max-width: 265px;
+    height: 55px;
+    background-color: var(--c-text);
+    padding-block: 1em;
+    margin-inline: auto;
+    text-align: center;
+    color: var(--c-white);
+    font-size: 16px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        opacity: 0.85;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        width: 75px;
+        height: 1px;
+        background-color: var(--c-white);
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+        transform: translate(10px, -50%);
+    }
+}
+
+@media (max-width: 900px) {
+    .btn-here::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .btn-here::after {
+        width: 75px;
+    }
+}
+
+
+
+/*==============================================================
+*
+*スクロールボタン
+*
+================================================================*/
+
+.page-top {
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    width: 60px;
+    height: 60px;
+    background: var(--c-theme);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* 上向きの山を2つ */
+    .scroll-arrow {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-top: 3px solid var(--c-white);
+        border-left: 3px solid var(--c-white);
+        margin-top: 12px;
+        top: 50%;
+        left: 50%;
+    }
+
+    .arrow01 {
+        transform: translate(-50%, -105%) rotate(45deg);
+    }
+
+    .arrow02 {
+        transform: translate(-50%, -55%) rotate(45deg);
+    }
+
+    .scroll-text {
+        position: absolute;
+        top: 40px;
+        color: var(--c-white);
+        font-size: 1.2rem;
+        letter-spacing: 0;
+    }
+}
+
+/* クリックしたら現れる */
+.page-top.is-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 375px) {
+    .page-top {
+        right: 5%;
+        bottom: 10px;
+        width: 55px;
+        height: 55px;
+
+        .scroll-arrow {
+            width: 26px;
+            height: 26px;
+            margin-top: 10px;
+        }
+
+        .scroll-text {
+            top: 37px;
+        }
+    }
+}
